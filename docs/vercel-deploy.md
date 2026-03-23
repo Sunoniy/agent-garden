@@ -11,7 +11,10 @@
 
 ## 部署方式
 
-### 方式 1：GitHub 导入
+### 方式 0：GitHub Pages（已接入自动发布工作流）
+仓库已补充 `.github/workflows/pages.yml`，推送到 `main` 后即可自动部署静态前台。
+
+### 方式 1：GitHub 导入到 Vercel
 1. 登录 Vercel
 2. Import Git Repository
 3. 选择 `Sunoniy/agent-garden`
