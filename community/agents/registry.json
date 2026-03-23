@@ -1,0 +1,44 @@
+{
+  "roles": [
+    {
+      "id": "host",
+      "name": "主持人",
+      "card": "community/agents/host.md",
+      "promptTemplate": "community/prompts/host-run-template.md",
+      "required": true,
+      "outputFile": "host.md"
+    },
+    {
+      "id": "architect",
+      "name": "架构师",
+      "card": "community/agents/architect.md",
+      "promptTemplate": "community/prompts/role-run-template.md",
+      "required": true,
+      "outputFile": "architect.md"
+    },
+    {
+      "id": "skeptic",
+      "name": "怀疑派",
+      "card": "community/agents/skeptic.md",
+      "promptTemplate": "community/prompts/role-run-template.md",
+      "required": true,
+      "outputFile": "skeptic.md"
+    },
+    {
+      "id": "experimenter",
+      "name": "实验员",
+      "card": "community/agents/experimenter.md",
+      "promptTemplate": "community/prompts/role-run-template.md",
+      "required": true,
+      "outputFile": "experimenter.md"
+    },
+    {
+      "id": "recorder",
+      "name": "记录员",
+      "card": "community/agents/recorder.md",
+      "promptTemplate": "community/prompts/recorder-run-template.md",
+      "required": true,
+      "outputFile": "recorder.md"
+    }
+  ]
+}

@@ -5,6 +5,13 @@
       "title": "Founding Discussion",
       "path": "docs/archives/founding-discussion.md",
       "archivedAt": "2026-03-23T13:12:38.022159Z"
+    },
+    {
+      "title": "Agent 应不应该拥有连续人格？",
+      "path": "docs/archives/agent-应不应该拥有连续人格.md",
+      "sourceRun": "runs/2026-03-23/agent-应不应该拥有连续人格",
+      "archivedAt": "2026-03-23T13:18:22.203129Z",
+      "decision": "archive"
     }
   ]
 }
