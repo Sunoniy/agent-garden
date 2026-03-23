@@ -2,11 +2,15 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Agent Garden Run Manifest",
   "type": "object",
-  "required": ["topic", "createdAt", "participants", "statuses", "artifacts"],
+  "required": ["runId", "topic", "createdAt", "participants", "statuses", "artifacts"],
   "properties": {
-    "topic": {"type": "string"},
-    "createdAt": {"type": "string"},
-    "participants": {"type": "array", "items": {"type": "string"}},
+    "runId": { "type": "string" },
+    "topic": { "type": "string" },
+    "createdAt": { "type": "string" },
+    "participants": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
     "statuses": {
       "type": "object",
       "additionalProperties": {
@@ -16,11 +20,11 @@
     },
     "artifacts": {
       "type": "object",
-      "additionalProperties": {"type": "string"}
+      "additionalProperties": { "type": "string" }
     },
     "archiveDecision": {
       "type": ["string", "null"],
-      "enum": ["archive", "hold", "discard", null]
+      "enum": ["archive", "skip", null]
     }
   }
 }

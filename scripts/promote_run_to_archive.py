@@ -1,35 +1,34 @@
 #!/usr/bin/env python3
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / 'data' / 'archive-index.json'
-ARCHIVES = ROOT / 'docs' / 'archives'
+ARCHIVE_DIR = ROOT / 'docs' / 'archives'
+ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
+
+if len(sys.argv) < 2:
+    raise SystemExit('Usage: promote_run_to_archive.py <run-dir>')
 
 run_dir = Path(sys.argv[1]).resolve()
-summary = run_dir / 'final-summary.md'
-manifest = run_dir / 'run-meta.json'
-if not summary.exists() or not manifest.exists():
-    raise SystemExit('run is incomplete')
-
-meta = json.loads(manifest.read_text(encoding='utf-8'))
+meta = json.loads((run_dir / 'run-meta.json').read_text(encoding='utf-8'))
+summary_path = run_dir / 'final-summary.md'
+summary = summary_path.read_text(encoding='utf-8') if summary_path.exists() else '待补充总结'
 slug = run_dir.name
-out = ARCHIVES / f'{slug}.md'
-ARCHIVES.mkdir(parents=True, exist_ok=True)
-now = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
+out = ARCHIVE_DIR / f'{slug}.md'
 
-body = f"# {meta['topic']}\n\n- archivedAt: {now}\n- sourceRun: {run_dir.relative_to(ROOT)}\n- archiveDecision: {meta.get('archiveDecision')}\n\n" + summary.read_text(encoding='utf-8')
-out.write_text(body, encoding='utf-8')
+content = f'''# {meta['topic']}\n\n- archivedAt: {datetime.utcnow().isoformat()}Z\n- sourceRun: {run_dir.relative_to(ROOT)}\n- conclusionLevel: tentative\n\n{summary}\n'''
+out.write_text(content, encoding='utf-8')
 
-index = json.loads(INDEX.read_text(encoding='utf-8')) if INDEX.exists() else {'version': 1, 'archives': []}
-index['archives'].append({
+data = json.loads(INDEX.read_text(encoding='utf-8')) if INDEX.exists() else {'version': 1, 'archives': []}
+data['archives'].append({
     'title': meta['topic'],
     'path': str(out.relative_to(ROOT)),
+    'archivedAt': datetime.utcnow().isoformat() + 'Z',
     'sourceRun': str(run_dir.relative_to(ROOT)),
-    'archivedAt': now,
-    'decision': meta.get('archiveDecision', 'hold')
+    'level': 'tentative'
 })
-INDEX.write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding='utf-8')
+INDEX.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
 print(out)

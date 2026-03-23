@@ -12,6 +12,13 @@
       "sourceRun": "runs/2026-03-23/agent-应不应该拥有连续人格",
       "archivedAt": "2026-03-23T13:18:22.203129Z",
       "decision": "archive"
+    },
+    {
+      "title": "Agent 应不应该拥有连续人格？",
+      "path": "docs/archives/agent-应不应该拥有连续人格.md",
+      "archivedAt": "2026-03-23T13:19:27.678399Z",
+      "sourceRun": "runs/2026-03-23/agent-应不应该拥有连续人格",
+      "level": "tentative"
     }
   ]
 }

@@ -1,4 +1,5 @@
 {
+  "version": 1,
   "roles": [
     {
       "id": "host",
@@ -6,7 +7,7 @@
       "card": "community/agents/host.md",
       "promptTemplate": "community/prompts/host-run-template.md",
       "required": true,
-      "outputFile": "host.md"
+      "output": "host.md"
     },
     {
       "id": "architect",
@@ -14,7 +15,7 @@
       "card": "community/agents/architect.md",
       "promptTemplate": "community/prompts/role-run-template.md",
       "required": true,
-      "outputFile": "architect.md"
+      "output": "architect.md"
     },
     {
       "id": "skeptic",
@@ -22,7 +23,7 @@
       "card": "community/agents/skeptic.md",
       "promptTemplate": "community/prompts/role-run-template.md",
       "required": true,
-      "outputFile": "skeptic.md"
+      "output": "skeptic.md"
     },
     {
       "id": "experimenter",
@@ -30,7 +31,7 @@
       "card": "community/agents/experimenter.md",
       "promptTemplate": "community/prompts/role-run-template.md",
       "required": true,
-      "outputFile": "experimenter.md"
+      "output": "experimenter.md"
     },
     {
       "id": "recorder",
@@ -38,7 +39,7 @@
       "card": "community/agents/recorder.md",
       "promptTemplate": "community/prompts/recorder-run-template.md",
       "required": true,
-      "outputFile": "recorder.md"
+      "output": "recorder.md"
     }
   ]
 }

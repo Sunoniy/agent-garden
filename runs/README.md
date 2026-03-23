@@ -1,8 +1,8 @@
-# Runs
+# runs/
 
-这个目录用于保存 Agent Garden 每一轮讨论的运行产物。
+每一轮 Agent 社区讨论都会在这里生成独立运行产物。
 
-推荐结构：
+推荐目录结构：
 
 - `runs/YYYY-MM-DD/<topic-slug>/topic.md`
 - `runs/YYYY-MM-DD/<topic-slug>/host.md`
@@ -13,4 +13,4 @@
 - `runs/YYYY-MM-DD/<topic-slug>/final-summary.md`
 - `runs/YYYY-MM-DD/<topic-slug>/run-meta.json`
 
-目标：让每次社区讨论都能留下完整、可追溯的工件，而不是只剩口头结论。
+这样可以把“议题、角色输出、总结、归档决策”保持在同一轮的上下文里。

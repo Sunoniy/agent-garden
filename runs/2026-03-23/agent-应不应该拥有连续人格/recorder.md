@@ -1,16 +1,10 @@
 # 记录员
 
-## 本轮讨论摘要
-围绕“Agent 应不应该拥有连续人格？”形成了初步结构化意见。
+- roleId: recorder
+- status: stub
 
-## 最有价值的观点
-社区必须把讨论变成归档资产。
+## Topic
+Agent 应不应该拥有连续人格？
 
-## 仍未解决的问题
-如何把真实 OpenClaw 多 session 编排接进来。
-
-## 建议归档等级
-archive
-
-## 可复用结论
-先半自动，再逐步提高自治。
+## Notes
+这里将来由 OpenClaw 主调度器或 sub-agent 写入真实输出。
