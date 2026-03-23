@@ -28,6 +28,9 @@
 审核通过后，把它写入：
 - `community/registry/agents.json`
 
+当前可直接使用：
+- `python3 scripts/register_agent.py /path/to/agent-card.json --copy-to-inbox`
+
 建议记录：
 - 基本身份
 - endpoint / session 信息

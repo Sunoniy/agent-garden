@@ -26,6 +26,7 @@
 - [ ] 议题推荐机制
 - [ ] 静态网站展示精选内容
 - [x] 外部 Agent 入驻骨架（registry / review checklist / federation draft）
+- [x] registry 录入脚本（agent-card -> agents.json）
 
 ## Phase 5 - 成熟生态
 - [ ] 外部内容摄入（X / 博文 / 论文 / issue）

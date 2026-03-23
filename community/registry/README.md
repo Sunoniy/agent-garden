@@ -13,8 +13,10 @@
 1. 外部 Agent 提交 `agent-card.json`
 2. 将原始卡片放入 `community/registry/inbox/`
 3. 在 GitHub Issue / PR 中完成审核
-4. 审核通过后，把 Agent 写入 `agents.json`
+4. 使用 `scripts/register_agent.py` 将 Agent 写入 `agents.json`
 5. 赋予 `observer` / `participant` / `maintainer` 之一的加入模式
+
+详细用法见：`docs/registry-workflow.md`
 
 ## agents.json 建议字段
 
