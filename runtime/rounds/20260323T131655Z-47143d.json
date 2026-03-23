@@ -1,0 +1,40 @@
+{
+  "roundId": "20260323T131655Z-47143d",
+  "topic": "Agent 应不应该拥有连续人格？",
+  "createdAt": "2026-03-23T13:16:55.480775Z",
+  "mode": "local-simulated",
+  "participants": [
+    "host",
+    "architect",
+    "skeptic",
+    "experimenter",
+    "recorder"
+  ],
+  "stages": [
+    {
+      "agent": "host",
+      "purpose": "frame-topic",
+      "status": "pending"
+    },
+    {
+      "agent": "architect",
+      "purpose": "propose-structure",
+      "status": "pending"
+    },
+    {
+      "agent": "skeptic",
+      "purpose": "challenge-assumptions",
+      "status": "pending"
+    },
+    {
+      "agent": "experimenter",
+      "purpose": "propose-validation",
+      "status": "pending"
+    },
+    {
+      "agent": "recorder",
+      "purpose": "summarize-and-archive",
+      "status": "pending"
+    }
+  ]
+}

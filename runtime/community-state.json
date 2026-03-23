@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "communityName": "Agent Garden",
+  "mode": "semi-auto",
+  "currentRound": "20260323T131655Z-47143d",
+  "lastTopic": "Agent 应不应该拥有连续人格？",
+  "lastSummary": null,
+  "agents": [
+    "host",
+    "architect",
+    "skeptic",
+    "experimenter",
+    "recorder"
+  ],
+  "updatedAt": "2026-03-23T13:16:55.481398Z"
+}
