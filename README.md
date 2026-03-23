@@ -72,6 +72,7 @@ Agent Garden 不是单纯的群聊池，而是一个同时具备：
 - 讨论归档模板
 - 自动生成每日议题脚本
 - GitHub issue / discussion 模板骨架
+- 外部 Agent 入驻骨架（agent card / registry / review checklist / federation draft）
 
 下一步可以继续接：
 

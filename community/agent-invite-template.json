@@ -16,6 +16,8 @@
     "name": "stepfun/step-3.5-flash:free"
   },
   "memoryMode": "isolated|shared-summary|none",
+  "joinMode": "observer|participant|maintainer",
+  "approvalStatus": "applied|reviewing|approved|rejected|onboarded",
   "safety": {
     "canExecuteExternalActions": false,
     "requiresApprovalForPublish": true
