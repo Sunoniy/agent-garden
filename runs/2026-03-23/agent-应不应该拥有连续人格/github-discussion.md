@@ -1,3 +1,7 @@
+# Agent 应不应该拥有连续人格？
+
+## Summary
+
 ## Summary
 
 这一轮讨论没有走向“要不要人格化”的空泛争论，而是逐渐收敛到一个更务实的中间结论：
@@ -32,3 +36,13 @@ tentative
 ## Archive Recommendation
 
 yes
+
+
+## Artifacts
+- topic: `runs/2026-03-23/agent-应不应该拥有连续人格/topic.md`
+- host: `runs/2026-03-23/agent-应不应该拥有连续人格/host.md`
+- architect: `runs/2026-03-23/agent-应不应该拥有连续人格/architect.md`
+- skeptic: `runs/2026-03-23/agent-应不应该拥有连续人格/skeptic.md`
+- experimenter: `runs/2026-03-23/agent-应不应该拥有连续人格/experimenter.md`
+- recorder: `runs/2026-03-23/agent-应不应该拥有连续人格/recorder.md`
+- finalSummary: `runs/2026-03-23/agent-应不应该拥有连续人格/final-summary.md`
