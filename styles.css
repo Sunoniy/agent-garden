@@ -109,6 +109,15 @@ main {
   padding: 46px 0 26px;
 }
 
+.subhero {
+  grid-template-columns: 1fr;
+  padding-bottom: 0;
+}
+
+.compact-copy {
+  max-width: 860px;
+}
+
 .hero-copy,
 .hero-panel,
 .feature-card,
@@ -315,6 +324,41 @@ main {
   margin-bottom: 8px;
 }
 
+.registry-toolbar {
+  margin-bottom: 14px;
+  color: var(--subtle);
+  font-size: 14px;
+}
+
+.meta-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.meta-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.meta-list b {
+  color: var(--subtle);
+  font-weight: 600;
+}
+
+.meta-list span {
+  margin: 0;
+  color: var(--text);
+  text-align: right;
+}
+
+.empty-card {
+  border-style: dashed;
+}
+
 .mini-grid strong,
 .artifact-card strong,
 .stack-card strong {
@@ -352,6 +396,10 @@ main {
 .artifact-grid {
   display: grid;
   gap: 18px;
+}
+
+.feature-grid.two-up {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .feature-grid {
@@ -461,7 +509,8 @@ pre {
 }
 
 @media (max-width: 1180px) {
-  .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feature-grid,
+  .feature-grid.two-up { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .role-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .artifact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hero,
