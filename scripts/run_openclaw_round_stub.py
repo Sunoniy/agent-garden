@@ -36,7 +36,8 @@ def main():
     for role in registry:
         prompt = run(['python3', str(ROOT / 'scripts' / 'build_role_prompt.py'), role['id'], topic, run_id])
         status = 'done'
-        content = f"# {role['name']}\n\n> round: {run_id}\n\n{prompt}\n\n---\n\n当前为 OpenClaw 接入前的占位运行输出。下一步将替换为真实 sub-agent 返回内容。\n"
+        role_name = role.get('name', role['id'])
+        content = f"# {role_name}\n\n> round: {run_id}\n\n{prompt}\n\n---\n\n当前为 OpenClaw 接入前的占位运行输出。下一步将替换为真实 sub-agent 返回内容。\n"
         (run_dir / role['output']).write_text(content, encoding='utf-8')
         meta['statuses'][role['id']] = status
 

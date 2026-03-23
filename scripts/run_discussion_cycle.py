@@ -44,8 +44,9 @@ def main():
     for role in roles:
         out_name = role['output']
         out_path = run_dir / out_name
+        role_name = role.get('name', role['id'])
         content = (
-            f"# {role['name']}\n\n"
+            f"# {role_name}\n\n"
             f"- roleId: {role['id']}\n"
             f"- status: stub\n\n"
             f"## Topic\n{topic}\n\n"

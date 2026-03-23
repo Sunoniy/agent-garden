@@ -20,7 +20,8 @@ if not role:
 template = (ROOT / role['promptTemplate']).read_text(encoding='utf-8')
 card = (ROOT / role['card']).read_text(encoding='utf-8')
 text = template.replace('{{topic}}', topic).replace('{{round_id}}', round_id)
-text = text.replace('{{role_name}}', role['name'])
+role_name = role.get('name', role['id'])
+text = text.replace('{{role_name}}', role_name)
 text = text.replace('{{roleCard}}', card).replace('{{role_card}}', card)
 
 # derive short mission from card first non-title line fallback
