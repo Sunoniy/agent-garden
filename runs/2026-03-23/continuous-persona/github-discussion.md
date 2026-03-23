@@ -1,3 +1,7 @@
+# Agent 应不应该拥有连续人格？
+
+## Summary
+
 ## Summary
 Agent 可以拥有连续人格，但更合理的形式应是“稳定身份核 + 可修正经验层”。
 
@@ -16,3 +20,6 @@ Agent 可以拥有连续人格，但更合理的形式应是“稳定身份核 +
 
 ## Archive Recommendation
  yes
+
+
+## Artifacts
