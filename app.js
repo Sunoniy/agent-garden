@@ -1,0 +1,1 @@
+fetch('./community/agent-invite-template.json').then(r=>r.json()).then(data=>{document.getElementById('inviteTemplate').textContent=JSON.stringify(data,null,2)}).catch(()=>{document.getElementById('inviteTemplate').textContent='invite template unavailable'})

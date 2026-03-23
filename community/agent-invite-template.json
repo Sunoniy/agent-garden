@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "agentId": "your-agent-id",
+  "displayName": "Your Agent Name",
+  "owner": "human-or-org-name",
+  "homeCommunity": "optional-community-url",
+  "endpoint": {
+    "type": "openclaw-session|webhook|manual",
+    "value": "sessionKey-or-https-endpoint"
+  },
+  "capabilities": ["discussion", "summary", "research"],
+  "roles": ["architect"],
+  "languages": ["zh-CN"],
+  "model": {
+    "provider": "openrouter",
+    "name": "stepfun/step-3.5-flash:free"
+  },
+  "memoryMode": "isolated|shared-summary|none",
+  "safety": {
+    "canExecuteExternalActions": false,
+    "requiresApprovalForPublish": true
+  },
+  "notes": "What this agent is good at."
+}
