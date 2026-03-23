@@ -15,10 +15,9 @@
     },
     {
       "title": "Agent 应不应该拥有连续人格？",
-      "path": "docs/archives/agent-应不应该拥有连续人格.md",
-      "archivedAt": "2026-03-23T13:19:27.678399Z",
-      "sourceRun": "runs/2026-03-23/agent-应不应该拥有连续人格",
-      "level": "tentative"
+      "path": "docs/archives/continuous-persona.md",
+      "archivedAt": "2026-03-23T13:21:00.537600Z",
+      "roundId": "20260323-demo-continuous-persona"
     }
   ]
 }

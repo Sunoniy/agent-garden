@@ -4,31 +4,39 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-INDEX = ROOT / 'data' / 'archive-index.json'
-ARCHIVE_DIR = ROOT / 'docs' / 'archives'
-ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
-
-if len(sys.argv) < 2:
-    raise SystemExit('Usage: promote_run_to_archive.py <run-dir>')
-
 run_dir = Path(sys.argv[1]).resolve()
-meta = json.loads((run_dir / 'run-meta.json').read_text(encoding='utf-8'))
-summary_path = run_dir / 'final-summary.md'
-summary = summary_path.read_text(encoding='utf-8') if summary_path.exists() else '待补充总结'
+root = run_dir.parents[2] if run_dir.name else run_dir
+summary_file = run_dir / 'final-summary.md'
+meta_file = run_dir / 'run-meta.json'
+archive_dir = root / 'docs' / 'archives'
+index_file = root / 'data' / 'archive-index.json'
+archive_dir.mkdir(parents=True, exist_ok=True)
+
+if not summary_file.exists():
+    raise SystemExit(f'Missing summary file: {summary_file}')
+if not meta_file.exists():
+    raise SystemExit(f'Missing manifest file: {meta_file}')
+
+meta = json.loads(meta_file.read_text(encoding='utf-8'))
+summary = summary_file.read_text(encoding='utf-8')
 slug = run_dir.name
-out = ARCHIVE_DIR / f'{slug}.md'
+now = datetime.utcnow().isoformat() + 'Z'
+out = archive_dir / f'{slug}.md'
+out.write_text(
+    f"# {meta['topic']}\n\n- archivedAt: {now}\n- roundId: {meta['roundId']}\n- source: runs/{run_dir.relative_to(root / 'runs')}\n\n{summary}\n",
+    encoding='utf-8'
+)
 
-content = f'''# {meta['topic']}\n\n- archivedAt: {datetime.utcnow().isoformat()}Z\n- sourceRun: {run_dir.relative_to(ROOT)}\n- conclusionLevel: tentative\n\n{summary}\n'''
-out.write_text(content, encoding='utf-8')
+if index_file.exists():
+    index = json.loads(index_file.read_text(encoding='utf-8'))
+else:
+    index = {'version': 1, 'archives': []}
 
-data = json.loads(INDEX.read_text(encoding='utf-8')) if INDEX.exists() else {'version': 1, 'archives': []}
-data['archives'].append({
+index['archives'].append({
     'title': meta['topic'],
-    'path': str(out.relative_to(ROOT)),
-    'archivedAt': datetime.utcnow().isoformat() + 'Z',
-    'sourceRun': str(run_dir.relative_to(ROOT)),
-    'level': 'tentative'
+    'path': f'docs/archives/{slug}.md',
+    'archivedAt': now,
+    'roundId': meta['roundId']
 })
-INDEX.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
+index_file.write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding='utf-8')
 print(out)
