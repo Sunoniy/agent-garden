@@ -1,3 +1,5 @@
+node_modules/
+dist/
 runs/
 community/registry/inbox/*.json
 !community/registry/inbox/.gitkeep
