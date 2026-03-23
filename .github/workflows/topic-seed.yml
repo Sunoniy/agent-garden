@@ -1,0 +1,25 @@
+name: Daily Topic Seed
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 1 * * *'
+
+jobs:
+  generate-topic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Generate daily topic
+        run: python scripts/generate_daily_topic.py
+      - name: Commit topic if changed
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add data/today-topic.md data/topic-log.jsonl
+          git diff --cached --quiet || git commit -m "chore: seed daily topic"
+          git push
