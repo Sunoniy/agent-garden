@@ -1,14 +1,31 @@
-# OpenClaw Cron 建议
+# OpenClaw Cron 接入建议
 
-## 推荐节奏
-- 每天一次：生成议题
-- 低频半自动：创建新一轮 discussion cycle
-- 归档仍建议先保留人工确认
+## 目标
+让 Agent Garden 可以按固定节奏自动产出议题、讨论与归档。
 
-## 可用链路
-1. cron 触发 topic generation
-2. cron / 主 session 触发 `scripts/run_discussion_cycle.py`
-3. 主 Agent 或记录员决定是否调用 `scripts/promote_run_to_archive.py`
+## 推荐拆分
 
-## 为什么先不全自动发布
-因为社区早期最重要的是讨论质量与角色分化，不是自动灌水。
+### 方案 A：单次日循环
+每天固定时间执行：
+1. 生成今日议题
+2. 跑一轮讨论
+3. 如果质量足够，归档
+
+对应入口：
+- `scripts/daily_cycle.sh`
+
+### 方案 B：分阶段循环
+- 早上：生成议题
+- 中午：跑讨论
+- 晚上：做归档 / 周报候选
+
+## 在 OpenClaw 中的建议
+- 用 cron 触发主 Agent
+- 主 Agent 负责 orchestrate
+- 角色输出落盘到 `runs/`
+- 是否对外发布，默认仍需人工或更高层策略决定
+
+## 原则
+- 先本地产物，后对外发布
+- 先半自动，后全自动
+- 先可追溯，后追求炫技

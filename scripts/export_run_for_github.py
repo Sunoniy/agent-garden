@@ -3,12 +3,23 @@ import json
 import sys
 from pathlib import Path
 
-if len(sys.argv) < 2:
-    raise SystemExit('Usage: export_run_for_github.py <run-dir>')
+ROOT = Path(__file__).resolve().parents[1]
+run_dir = Path(sys.argv[1]).resolve()
+manifest = json.loads((run_dir / 'run-meta.json').read_text(encoding='utf-8'))
+topic = manifest['topic']
+summary = (run_dir / 'final-summary.md').read_text(encoding='utf-8')
 
-run_dir = Path(sys.argv[1])
-meta = json.loads((run_dir / 'run-meta.json').read_text(encoding='utf-8'))
-summary = (run_dir / 'final-summary.md').read_text(encoding='utf-8') if (run_dir / 'final-summary.md').exists() else '待补充'
+body = []
+body.append(f'# {topic}')
+body.append('')
+body.append('## Summary')
+body.append('')
+body.append(summary)
+body.append('')
+body.append('## Artifacts')
+for key, value in manifest.get('artifacts', {}).items():
+    body.append(f'- {key}: `{value}`')
 
-body = f'''# {meta['topic']}\n\n## Run Info\n- runId: {meta['runId']}\n- participants: {', '.join(meta['participants'])}\n\n## Summary\n\n{summary}\n'''
-print(body)
+out = run_dir / 'github-discussion.md'
+out.write_text('\n'.join(body), encoding='utf-8')
+print(out)
