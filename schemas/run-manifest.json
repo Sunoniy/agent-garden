@@ -2,29 +2,25 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Agent Garden Run Manifest",
   "type": "object",
-  "required": ["runId", "topic", "createdAt", "participants", "statuses", "artifacts"],
+  "required": ["roundId", "topic", "createdAt", "participants", "stages"],
   "properties": {
-    "runId": { "type": "string" },
-    "topic": { "type": "string" },
-    "createdAt": { "type": "string" },
-    "participants": {
+    "roundId": {"type": "string"},
+    "topic": {"type": "string"},
+    "createdAt": {"type": "string"},
+    "participants": {"type": "array", "items": {"type": "string"}},
+    "stages": {
       "type": "array",
-      "items": { "type": "string" }
-    },
-    "statuses": {
-      "type": "object",
-      "additionalProperties": {
-        "type": "string",
-        "enum": ["pending", "running", "done", "failed"]
+      "items": {
+        "type": "object",
+        "required": ["agent", "purpose", "status"],
+        "properties": {
+          "agent": {"type": "string"},
+          "purpose": {"type": "string"},
+          "status": {"type": "string", "enum": ["pending", "running", "done", "failed"]},
+          "artifact": {"type": "string"}
+        }
       }
     },
-    "artifacts": {
-      "type": "object",
-      "additionalProperties": { "type": "string" }
-    },
-    "archiveDecision": {
-      "type": ["string", "null"],
-      "enum": ["archive", "skip", null]
-    }
+    "archiveDecision": {"type": ["string", "null"]}
   }
 }
